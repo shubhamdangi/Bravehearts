@@ -1,6 +1,5 @@
 .reset {
-  height: 100vh;
-  width: 100vw;
+  padding-top: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,11 +10,13 @@
   text-align: center;
   background-color: #dcdcdc;
   padding: 30px;
+  border-radius: 10px;
 }
 .reset__textBox {
   padding: 10px;
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 .reset__btn {
   padding: 10px;
@@ -24,6 +25,7 @@
   border: none;
   color: white;
   background-color: black;
+  border-radius: 18px;
 }
 .reset div {
   margin-top: 7px;

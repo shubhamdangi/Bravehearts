@@ -24,7 +24,7 @@ function Login() {
   return (
     <div className="login">
       <div className="login__container">
-        <h3>Login to Bravehearts</h3> <br />
+        <h4 style={{ paddingBottom: "8px" }}>Login to Bravehearts</h4>
         <input
           type="text"
           className="login__textBox"
@@ -50,7 +50,7 @@ function Login() {
           <img
             height="22px"
             width="22px"
-            style={{ marginBottom: "-4px" }}
+            style={{ marginBottom: "5px" }}
             src={google}
             alt="google"
           />

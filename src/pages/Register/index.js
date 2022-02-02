@@ -28,7 +28,7 @@ function Register() {
   return (
     <div className="register">
       <div className="register__container">
-        <h3>Sign up</h3> <br />
+        <h4 style={{ paddingBottom: "10px" }}>Sign up</h4>
         <input
           type="text"
           className="register__textBox"
@@ -58,7 +58,7 @@ function Register() {
           <img
             height="22px"
             width="22px"
-            style={{ marginBottom: "-4px" }}
+            style={{ marginBottom: "5px" }}
             src={google}
             alt="google"
           />

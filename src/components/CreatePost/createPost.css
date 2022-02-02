@@ -1,0 +1,91 @@
+.imageUpload {
+  background-color: white;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 30px;
+  padding: 16px 0px;
+}
+
+.app__createPost {
+  text-align: center;
+  justify-content: center;
+}
+
+.createAPost__Top {
+  margin: 0px 16px;
+}
+
+.image-upload > input {
+  display: none;
+}
+
+.createAPost__center {
+  margin: 0px 16px;
+}
+
+.imageUpload__bottom {
+  display: flex;
+  margin: 0px 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.createAPost__textarea {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.createAPost__textarea {
+  border: none;
+}
+
+.createAPost__textarea:focus {
+  outline: none;
+}
+
+.button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.imagePreview {
+  margin-top: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.circularProgress {
+  margin-left: 8px;
+}
+
+#image-1-preview {
+  display: none;
+  max-height: 60px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.shadow-textarea textarea.form-control::placeholder {
+  font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+  padding-left: 0.8rem;
+}
+
+.post__text {
+  max-width: 600px;
+  border: none;
+  background-color: #eeeeee;
+  resize: none;
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
