@@ -1,12 +1,7 @@
 import React from "react";
-import CreatePost from "../../components/CreatePost";
 
 function Home() {
-  return (
-    <div style={{ textAlign: "center" }}>
-      <CreatePost />
-    </div>
-  );
+  return <div style={{ textAlign: "center" }}>home posts</div>;
 }
 
 export default Home;

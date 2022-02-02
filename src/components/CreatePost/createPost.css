@@ -26,8 +26,11 @@
 .imageUpload__bottom {
   display: flex;
   margin: 0px 16px;
-  justify-content: space-between;
-  align-items: center;
+  /* padding-top: 10px; */
+  margin-left: 24%;
+  margin-top: -39px;
+  /* justify-content: stretch; */
+  /* align-items: left; */
 }
 
 .createAPost__textarea {
@@ -88,4 +91,9 @@
   outline: 0px !important;
   -webkit-appearance: none;
   box-shadow: none !important;
+}
+
+.imgPreview {
+  margin-left: 23%;
+  margin-top: -3%;
 }

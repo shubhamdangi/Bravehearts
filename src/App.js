@@ -3,6 +3,7 @@ import { Home, Login, Register, Reset } from "./pages";
 import { Header, Dashboard } from "./components";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CreatePost from "./components/CreatePost";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/publish" element={<CreatePost />} />
         </Routes>
       </Router>
     </div>
