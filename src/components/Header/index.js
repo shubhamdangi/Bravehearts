@@ -48,6 +48,11 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              <NavLink>
+                <Nav.Link as={Link} to="/publish">
+                  Publish
+                </Nav.Link>
+              </NavLink>
               {user ? (
                 <NavDropdown title={name ? name : user?.email} id="username">
                   <Link to="/profile">

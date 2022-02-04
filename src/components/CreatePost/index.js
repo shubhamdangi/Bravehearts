@@ -1,6 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./createPost.css";
-import { collection, addDoc, setDoc, doc, Timestamp } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+  Timestamp,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase";
 import { Container } from "react-bootstrap";
@@ -17,9 +26,11 @@ import {
 
 function CreatePost({ onClose, open }) {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [post, setPost] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const [image, setImage] = useState(null);
+  const [name, setName] = useState("");
+  const [time, setTime] = useState("");
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -31,16 +42,69 @@ function CreatePost({ onClose, open }) {
     }
   };
 
+  //get name
+  const fetchUserName = async () => {
+    try {
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      setName(data.name);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+  useEffect(() => {
+    if (loading) return;
+    // if (!user) return navigate("/");
+    fetchUserName();
+  }, [user, loading]);
+
+  //date time function
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  var currentdate = new Date();
+  var datetime =
+    monthNames[currentdate.getMonth()] +
+    " " +
+    currentdate.getDate() +
+    " · " +
+    currentdate.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+
+  function time1() {
+    setTime(datetime);
+  }
+
   /* function to add new task to firestore */
   const handleSubmit = async (e) => {
     e.preventDefault();
+    fetchUserName();
+    time1();
     try {
       await addDoc(collection(db, "posts"), {
         title: title,
-        description: description,
+        post: post,
         completed: false,
-        user: user.email,
+        email: user.email,
         created: Timestamp.now(),
+        name: name,
+        time: time,
         // photoUrl: postImage,
       }).then((docum) => {
         if (image) {
@@ -73,7 +137,7 @@ function CreatePost({ onClose, open }) {
       //   inputRef.current.value = "";
       //   onClose();
       setTitle("");
-      setDescription("");
+      setPost("");
       setImage(null);
       var preview1 = document.getElementById("image-1-preview");
       preview1.style.display = "none";
@@ -109,8 +173,8 @@ function CreatePost({ onClose, open }) {
               id="exampleFormControlTextarea6"
               rows="9"
               column="2"
-              onChange={(e) => setDescription(e.target.value)}
-              value={description}
+              onChange={(e) => setPost(e.target.value)}
+              value={post}
               style={{
                 border: "none",
                 backgroundColor: "#EEEEEE",
@@ -140,9 +204,9 @@ function CreatePost({ onClose, open }) {
               textAlign: "center",
               borderRadius: "15px",
               //   backgroundColor: "#4E9F3D",
-              marginLeft: "44%",
+              marginLeft: "68%",
             }}
-            disabled={!description}
+            disabled={!post}
             onClick={handleSubmit}
             variant="contained"
             color="primary"
