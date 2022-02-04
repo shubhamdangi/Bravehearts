@@ -9,6 +9,7 @@ import {
   query,
   where,
   getDocs,
+  serverTimestamp,
 } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase";
@@ -95,14 +96,14 @@ function CreatePost({ onClose, open }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     fetchUserName();
-    time1();
+
     try {
       await addDoc(collection(db, "posts"), {
         title: title,
         post: post,
         completed: false,
         email: user.email,
-        created: Timestamp.now(),
+        created: serverTimestamp(),
         name: name,
         time: time,
         // photoUrl: postImage,
@@ -147,7 +148,7 @@ function CreatePost({ onClose, open }) {
   };
 
   return (
-    <div>
+    <div style={{ minHeight: "100vh" }}>
       {user ? (
         <Container>
           {" "}
@@ -158,7 +159,8 @@ function CreatePost({ onClose, open }) {
             id="exampleFormControlTextarea6"
             rows="2"
             column="2"
-            onChange={(e) => setTitle(e.target.value.toUpperCase())}
+            onChange={(e) => setTitle(e.target.value)}
+            onClick={time1}
             value={title}
             style={{
               border: "none",
@@ -174,6 +176,7 @@ function CreatePost({ onClose, open }) {
               rows="9"
               column="2"
               onChange={(e) => setPost(e.target.value)}
+              onClick={time1}
               value={post}
               style={{
                 border: "none",
@@ -205,6 +208,8 @@ function CreatePost({ onClose, open }) {
               borderRadius: "15px",
               //   backgroundColor: "#4E9F3D",
               marginLeft: "68%",
+              border: "2px solid white",
+              color: "white",
             }}
             disabled={!post}
             onClick={handleSubmit}

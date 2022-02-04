@@ -1,0 +1,12 @@
+.app {
+  min-height: 100vh;
+}
+
+.darkmode-btn {
+  text-align: right;
+  padding: 10px 15px 0 10px;
+}
+
+.dark-mode {
+  background-color: black;
+}

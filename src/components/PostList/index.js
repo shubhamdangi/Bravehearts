@@ -7,6 +7,7 @@ import { db, auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 // Icons
 import { Avatar } from "@material-ui/core";
@@ -61,10 +62,18 @@ function PostList({
     <div className="post">
       <div className="postTop">
         <div className="postTopInfo">
-          <Avatar src={postImage} className="postAvatar" />
+          <Avatar className="postAvatar" />
           <h3 style={{ marginBottom: "0" }}>
             {name} <br />{" "}
-            <p style={{ margin: "5 0 -5px 0px", paddingTop: "0" }}>time</p>
+            <p
+              style={{
+                margin: "5 0 -5px 0px",
+                paddingTop: "0",
+                fontWeight: "normal",
+              }}
+            >
+              {time}
+            </p>
           </h3>{" "}
           {/* <p>{new Date(timestamp?.toDate()).toUTCString()}</p> */}
           {/* <p>{new Date(timestamp?.toDate()).toUTCString()}</p> */}
@@ -98,7 +107,15 @@ function PostList({
       </div>
 
       <div className="postImage">
-        <img src={postImage} alt="" />
+        {postImage ? (
+          <img
+            src={postImage}
+            style={{ borderRadius: "10px" }}
+            alt="post-image"
+          />
+        ) : (
+          <></>
+        )}
       </div>
       <div className="postBottom">
         <p>{post}</p>
@@ -106,7 +123,7 @@ function PostList({
 
       <div className="postOptions">
         <div className="postOption">
-          <ThumbUp />
+          <FavoriteIcon />
           <p>Like</p>
         </div>
 
