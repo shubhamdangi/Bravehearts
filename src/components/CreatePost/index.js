@@ -5,7 +5,6 @@ import {
   addDoc,
   setDoc,
   doc,
-  Timestamp,
   query,
   where,
   getDocs,
@@ -14,9 +13,7 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase";
 import { Container } from "react-bootstrap";
-import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import PublicIcon from "@material-ui/icons/Public";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import {
   ref,
@@ -32,6 +29,7 @@ function CreatePost({ onClose, open }) {
   const [image, setImage] = useState(null);
   const [name, setName] = useState("");
   const [time, setTime] = useState("");
+  const [comment, setComment] = useState("");
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -106,6 +104,8 @@ function CreatePost({ onClose, open }) {
         created: serverTimestamp(),
         name: name,
         time: time,
+        // comments: {},
+
         // photoUrl: postImage,
       }).then((docum) => {
         if (image) {
@@ -168,7 +168,7 @@ function CreatePost({ onClose, open }) {
               backgroundColor: "#EEEEEE",
             }}
             placeholder="Title.."
-          ></textarea>{" "}
+          ></textarea>
           <div className="desc">
             <textarea
               class="form-control center-block container-fluid post__text	"

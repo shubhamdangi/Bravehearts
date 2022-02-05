@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Home, Login, Register, Reset } from "./pages";
 import { Header, Dashboard } from "./components";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -8,14 +8,39 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 import IconButton from "@material-ui/core/IconButton";
 
 function App() {
-  const [Toggle, setToggle] = useState(true);
+  const [Toggle, setToggle] = useState(false);
 
   function handleClick() {
     setToggle(!Toggle);
+    localStorage.setItem("toggle1", Toggle);
+    getData();
   }
 
+  var num;
+  // save dark mode preference
+  let getData = () => {
+    var data = localStorage.getItem("toggle1");
+    JSON.stringify(data);
+
+    if (data == "true") {
+      num = true;
+    }
+    if (data == "false") {
+      num = false;
+    }
+    setDisplay(num);
+    return num;
+  };
+
+  const [display, setDisplay] = useState();
+
+  useEffect(() => {
+    getData();
+    setDisplay(num);
+  }, []);
+
   return (
-    <div className={Toggle ? "app" : "dark-mode"}>
+    <div className={display ? "dark-mode" : "app"}>
       <Router>
         <Header />{" "}
         <div className="darkmode-btn">

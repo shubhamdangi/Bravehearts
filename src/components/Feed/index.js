@@ -41,6 +41,7 @@ function Feed() {
               name={task.data.name}
               email={task.data.email}
               time={task.data.time}
+              comments={task.data.comments}
             />
           ))}
         </div>
