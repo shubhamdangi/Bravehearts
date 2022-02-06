@@ -1,70 +1,75 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center"><img src='https://user-images.githubusercontent.com/51415346/152680673-d928157b-ca83-402f-935e-ae368f4bffee.png' width="45px" height="35px"></img>Bravehearts </h1>
+<h2 align="center">Dedicate quotes or poems honoring our Brave Soldiers </h2>
 
-## Available Scripts
 
-In the project directory, you can run:
+<hr/>
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Application Overview:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br/>
+<br/>
 
-### `npm test`
+<p align="center"><img src='https://user-images.githubusercontent.com/51415346/152679239-2681bd32-fa02-425d-8a44-48ed78be2893.png'></img></p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
 
-### `npm run build`
+# Application Features:
+  - A platform where users can write and dedicate quotes, or poems honoring our Brave Soldiers and Veterans for their sacrifices towards the nation.
+  - Authentication and Authorization providing Login/Register and Sign-in with Google functionality.
+  - Forgot password feature allowing users to reset their password via a password reset link sent to their email.
+  - Users can also upload an image along with the post.
+  - The users also have the ability to delete their own posts
+  - Contains Dark Mode functionality which will also be saved for the next visit as a preference.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Tech Stack
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAF)](#)
+[![Firebase](https://img.shields.io/badge/firebase-20232A.svg?style=for-the-badge&logo=firebase)](#)
+[![CSS3](https://img.shields.io/badge/css3-20232A.svg?style=for-the-badge&logo=css3)](#)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](#) 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<b>Frontend</b>: React.js
+<br>
+Additional NPM Libraries:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  - react-router-dom
+  - react-router-bootstrap
+  - @material-ui/icons
+  - @material-ui/core
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
+<b>Styling</b>: CSS and Bootstrap
+<br>
+<b>Database</b>: Firebase Firestore
+<br>
+<b>Authentication and Authorization</b>: Firebase Authentication
+<br>
+<b>Storing Images</b>: Firebase Storage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+<br/>
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- <p align="center"><img src='https://user-images.githubusercontent.com/51415346/150120040-056aa6d8-b505-4bf0-a6d6-d84c7bc606d0.jpg'></img></p> -->
 
-### Making a Progressive Web App
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+<div align="center"><h1>&#127759; visit:<a href="https://bravehearts-in.web.app/"> Bravehearts</a></h1>
+</div>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![LinkedIn](https://img.shields.io/static/v1.svg?label=connect&message=@ishubhamdangi&color=grey&logo=linkedin&style=flat&logoColor=white&colorA=blue)](https://www.linkedin.com/in/ishubhamdangi/) [![Twitter](https://img.shields.io/static/v1.svg?label=connect&message=@ishubhamdangi&color=grey&logo=twitter&style=flat&logoColor=white&colorA=blue)](https://twitter.com/ishubhamdangi) [![Instagram](https://img.shields.io/static/v1.svg?label=follow&message=@ishubhamdangi&color=grey&logo=instagram&style=flat&logoColor=white&colorA=blue)](https://www.instagram.com/ishubhamdangi/) 
