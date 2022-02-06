@@ -3,12 +3,12 @@ import PostList from "../PostList";
 import { useState, useEffect } from "react";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { useNavigate } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Feed() {
-  const [openAddModal, setOpenAddModal] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
@@ -27,7 +27,8 @@ function Feed() {
         snapshot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data(),
-        }))
+        })),
+        setLoading(false)
       );
     });
   }, []);
@@ -57,21 +58,25 @@ function Feed() {
             Post quotes or poems honoring our Brave Soldiers
           </Button>
         </div>
-        <div>
-          {posts.map((task) => (
-            <PostList
-              id={task.id}
-              key={task.id}
-              postImage={task.data.postImage}
-              title={task.data.title}
-              post={task.data.post}
-              name={task.data.name}
-              email={task.data.email}
-              time={task.data.time}
-              comments={task.data.comments}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <CircularProgress />
+        ) : (
+          <div>
+            {posts.map((task) => (
+              <PostList
+                id={task.id}
+                key={task.id}
+                postImage={task.data.postImage}
+                title={task.data.title}
+                post={task.data.post}
+                name={task.data.name}
+                email={task.data.email}
+                time={task.data.time}
+                comments={task.data.comments}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* {openAddModal && (
