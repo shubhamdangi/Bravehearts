@@ -37,7 +37,6 @@ function Feed() {
     <div className="feed">
       <div>
         <div className="feed-top">
-          {/* <img className="banner-image" src={Banner} alt="banner-image" /> */}
           <Button
             style={{
               alignItems: "center",
@@ -78,10 +77,6 @@ function Feed() {
           </div>
         )}
       </div>
-
-      {/* {openAddModal && (
-        <AddTask onClose={() => setOpenAddModal(false)} open={openAddModal} />
-      )} */}
     </div>
   );
 }
