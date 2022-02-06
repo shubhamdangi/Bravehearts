@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
+import { useNavigate } from "react-router-dom";
 
 // Icons
 import { Avatar } from "@material-ui/core";
@@ -26,11 +27,14 @@ function PostList({
   const [open, setOpen] = useState({ edit: false, view: false });
   const [user, loading, error] = useAuthState(auth);
   const [comment, setComment] = useState();
+  const navigate = useNavigate();
 
   const handleClose = () => {
     setOpen({ edit: false, view: false });
   };
-
+  const redirect = () => {
+    navigate("/login");
+  };
   /* function to update firestore */
   const handleChange = async () => {
     const taskDocRef = doc(db, "posts", id);
@@ -109,7 +113,7 @@ function PostList({
       </div>
 
       <div className="postBottom">
-        <p>{title}</p>
+        <h6>{title}</h6>
       </div>
 
       <div className="postImage">
@@ -124,7 +128,7 @@ function PostList({
         )}
       </div>
       <div className="postBottom">
-        <p>{post}</p>
+        <p className="post-text">{post}</p>
       </div>
       {comments ? (
         <div className="comment">
@@ -151,7 +155,13 @@ function PostList({
           }}
           placeholder="add your comment.."
         ></textarea>
-        <Button onClick={handleUpdate}>comment</Button>
+        <Button
+          onClick={() => {
+            user ? handleUpdate() : redirect();
+          }}
+        >
+          comment
+        </Button>
       </div>
     </div>
   );
