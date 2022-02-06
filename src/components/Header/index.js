@@ -2,14 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Flag from "./flag.png";
 
-import {
-  Navbar,
-  Nav,
-  Container,
-  Row,
-  NavDropdown,
-  NavLink,
-} from "react-bootstrap";
+import { Navbar, Nav, Container, NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase";
