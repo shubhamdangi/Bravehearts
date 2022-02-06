@@ -1,7 +1,6 @@
 import "./PostList.css";
 import { useState } from "react";
 import Post from "../Post";
-import EditPost from "../EditPost";
 import { doc, updateDoc, deleteDoc, setDoc, addDoc } from "firebase/firestore";
 import { db, auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -50,6 +49,7 @@ function PostList({
       await updateDoc(taskDocRef, {
         comments: comment,
       });
+      setComment("");
     } catch (err) {
       alert(err);
     }
@@ -73,7 +73,7 @@ function PostList({
         <div className="postTopInfo">
           <Avatar className="postAvatar" />
           <h3 style={{ marginBottom: "0" }}>
-            {name} <br />{" "}
+            {name} <br />
             <p
               style={{
                 margin: "5 0 -5px 0px",
@@ -126,11 +126,16 @@ function PostList({
       <div className="postBottom">
         <p>{post}</p>
       </div>
-      <div className="comment">
-        <p>
-          <span style={{ fontWeight: "550" }}>{name}</span> {comments}
-        </p>
-      </div>
+      {comments ? (
+        <div className="comment">
+          <p style={{ fontSize: "13px" }}>
+            <span style={{ fontWeight: "550" }}>{name}</span> {comments}
+          </p>
+        </div>
+      ) : (
+        ""
+      )}
+
       <div className="postOptions">
         <textarea
           class="form-control center-block container-fluid post__text	"
@@ -147,14 +152,6 @@ function PostList({
           placeholder="add your comment.."
         ></textarea>
         <Button onClick={handleUpdate}>comment</Button>
-
-        <EditPost
-          onClose={handleClose}
-          toEditTitle={title}
-          toEditpost={post}
-          open={open.edit}
-          id={id}
-        />
       </div>
     </div>
   );

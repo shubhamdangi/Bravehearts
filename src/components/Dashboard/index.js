@@ -28,8 +28,14 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <div className="dashboard__container">
-        Logged in as :<div>{name ? name : user?.email}</div>
-        <div>{user?.email}</div>
+        Logged in as :
+        <div>
+          <strong>{name ? name : user?.email}</strong>
+        </div>
+        <div>
+          <strong>{user?.email}</strong>
+        </div>{" "}
+        <br />
         <button className="dashboard__btn" onClick={logout}>
           Logout
         </button>

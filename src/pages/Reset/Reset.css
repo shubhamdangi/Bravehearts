@@ -1,8 +1,10 @@
 .reset {
-  padding-top: 60px;
+  /* padding-top: 30px; */
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 180px;
+  min-height: 100vh;
 }
 .reset__container {
   display: flex;

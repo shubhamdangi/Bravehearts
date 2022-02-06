@@ -2,7 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 35px;
+  /* padding-top: 35px; */
+  padding-bottom: 50px;
+  min-height: 100vh;
+  margin-top: -5%;
 }
 .login__container {
   display: flex;

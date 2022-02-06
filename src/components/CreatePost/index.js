@@ -21,6 +21,7 @@ import {
   getDownloadURL,
   getStorage,
 } from "firebase/storage";
+import { useNavigate } from "react-router-dom";
 
 function CreatePost({ onClose, open }) {
   const [title, setTitle] = useState("");
@@ -30,6 +31,11 @@ function CreatePost({ onClose, open }) {
   const [name, setName] = useState("");
   const [time, setTime] = useState("");
   const [comment, setComment] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) return navigate("/login");
+  }, [user]);
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -135,13 +141,13 @@ function CreatePost({ onClose, open }) {
           );
         }
       });
-      //   inputRef.current.value = "";
-      //   onClose();
+
       setTitle("");
       setPost("");
       setImage(null);
       var preview1 = document.getElementById("image-1-preview");
       preview1.style.display = "none";
+      // navigate("/");
     } catch (err) {
       alert(err);
     }
@@ -152,8 +158,10 @@ function CreatePost({ onClose, open }) {
       {user ? (
         <Container>
           {" "}
-          <br />
-          <h4>Create Post</h4>
+          <div style={{ textAlign: "center" }}>
+            <h4>Create Post</h4>
+            <br />
+          </div>
           <textarea
             class="form-control center-block container-fluid post__text	"
             id="exampleFormControlTextarea6"
@@ -166,6 +174,7 @@ function CreatePost({ onClose, open }) {
               border: "none",
               marginBottom: "5px",
               backgroundColor: "#EEEEEE",
+              color: "black",
             }}
             placeholder="Title.."
           ></textarea>
@@ -181,8 +190,9 @@ function CreatePost({ onClose, open }) {
               style={{
                 border: "none",
                 backgroundColor: "#EEEEEE",
+                color: "black",
               }}
-              placeholder="Write your masterpiece here.."
+              placeholder="Write your post here.."
             ></textarea>{" "}
           </div>
           <div className="imageUpload__bottom">
@@ -233,7 +243,7 @@ function CreatePost({ onClose, open }) {
             alignItems: "center",
           }}
         >
-          <p> SignIn to Post</p>
+          <h5>Please Login to Post</h5>
         </div>
       )}
     </div>

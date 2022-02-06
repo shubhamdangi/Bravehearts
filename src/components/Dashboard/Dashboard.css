@@ -1,16 +1,17 @@
 .dashboard {
   height: 100vh;
-  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 20%;
 }
 .dashboard__container {
   display: flex;
   flex-direction: column;
   text-align: center;
   background-color: #dcdcdc;
-  padding: 30px;
+  padding: 40px;
+  border-radius: 15px;
 }
 .dashboard__btn {
   padding: 10px;
@@ -19,6 +20,7 @@
   border: none;
   color: white;
   background-color: black;
+  border-radius: 15px;
 }
 .dashboard div {
   margin-top: 7px;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Flag from "./flag.png";
 
 import {
   Navbar,
@@ -41,6 +42,16 @@ function Header() {
         <Container>
           <NavLink>
             <Navbar.Brand as={Link} to="/">
+              <img
+                src={Flag}
+                alt="image"
+                // className="SupportImage"
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  margin: "-10px 0 -10px 0",
+                }}
+              />
               BraveHearts
             </Navbar.Brand>
           </NavLink>
@@ -54,13 +65,16 @@ function Header() {
                 </Nav.Link>
               </NavLink>
               {user ? (
-                <NavDropdown title={name ? name : user?.email} id="username">
-                  <Link to="/profile">
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
-                  </Link>
-
-                  <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-                </NavDropdown>
+                <>
+                  <NavLink>
+                    <Nav.Link as={Link} to="/dashboard">
+                      {name ? name : user?.email}
+                    </Nav.Link>
+                  </NavLink>
+                  <NavLink>
+                    <Nav.Link onClick={logout}>Logout</Nav.Link>
+                  </NavLink>
+                </>
               ) : (
                 <>
                   <NavLink>
@@ -75,6 +89,11 @@ function Header() {
                   </NavLink>
                 </>
               )}
+              <NavLink>
+                <Nav.Link as={Link} to="/support">
+                  Contribute to Indian Army
+                </Nav.Link>
+              </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -3,11 +3,18 @@ import PostList from "../PostList";
 import { useState, useEffect } from "react";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
-// import AddTask from "./AddTask";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { useNavigate } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 function Feed() {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/publish");
+  };
 
   /* function to get all posts from firestore in realtime */
   useEffect(() => {
@@ -26,11 +33,31 @@ function Feed() {
   }, []);
 
   return (
-    <div className="taskManager">
-      <div className="taskManager__container">
-        {" "}
-        <br />
-        <div className="taskManager__posts">
+    <div className="feed">
+      <div>
+        <div className="feed-top">
+          {/* <img className="banner-image" src={Banner} alt="banner-image" /> */}
+          <Button
+            style={{
+              alignItems: "center",
+              textAlign: "center",
+              borderRadius: "10px",
+              backgroundColor: "#5F6769",
+              textTransform: "none",
+              // marginLeft: "68%",
+              width: "44%",
+              border: "2px solid white",
+              color: "white",
+            }}
+            // disabled={!post}
+            onClick={handleClick}
+            variant="contained"
+            color="primary"
+          >
+            Post quotes or poems honoring our Brave Soldiers
+          </Button>
+        </div>
+        <div>
           {posts.map((task) => (
             <PostList
               id={task.id}

@@ -1,0 +1,17 @@
+.feed-top {
+  margin: 0 0 30px 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-image {
+  width: 30vw;
+  height: 17vh;
+  /* margin: -10px 0 -10px 0; */
+}
+
+.feed {
+  min-height: 100vh;
+}

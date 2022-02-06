@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Home, Login, Register, Reset } from "./pages";
-import { Header, Dashboard } from "./components";
+import { Home, Login, Register, Reset, Support } from "./pages";
+import { Header, Dashboard, Footer } from "./components";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CreatePost from "./components/CreatePost";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
@@ -58,7 +58,9 @@ function App() {
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/publish" element={<CreatePost />} />
+          <Route exact path="/support" element={<Support />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

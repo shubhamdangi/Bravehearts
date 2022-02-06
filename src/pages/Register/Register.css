@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 35px;
+  /* padding-top: 5px; */
+  min-height: 100vh;
+  margin-top: -6%;
 }
 .register__container {
   display: flex;
