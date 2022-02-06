@@ -157,9 +157,8 @@ function CreatePost({ onClose, open }) {
     <div style={{ minHeight: "100vh" }}>
       {user ? (
         <Container>
-          {" "}
           <div style={{ textAlign: "center" }}>
-            <h4>Create Post</h4>
+            <h3 className="create-head">Create Post</h3>
             <br />
           </div>
           <textarea

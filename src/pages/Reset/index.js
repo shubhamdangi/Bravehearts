@@ -26,7 +26,13 @@ function Reset() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter Your Email"
         />
-        <button className="reset__btn" onClick={() => sendPasswordReset(email)}>
+        <button
+          className="reset__btn"
+          onClick={() => {
+            sendPasswordReset(email);
+            alert("Password reset link sent! Please check your email.");
+          }}
+        >
           Send password reset link
         </button>
         <div>

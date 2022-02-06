@@ -97,3 +97,8 @@
   margin-left: 23%;
   margin-top: -3%;
 }
+
+.create-head {
+  color: black;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}

@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 180px;
   min-height: 100vh;
+  margin-top: -10%;
 }
 .reset__container {
   display: flex;
